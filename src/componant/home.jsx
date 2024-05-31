@@ -3,11 +3,14 @@ import React  from 'react'
 import { useNavigate } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { deleteData, removeData } from '../store/slice';
+import Logout from './authentication/logout';
 
 function home() {
     const navigate =useNavigate();
     const users =useSelector((state)=>state.users)
     const dispatch=useDispatch()
+    const isAuth = useSelector((state) => state.user.isAuth)
+
 
     const handledelete=(id)=>{
       dispatch(deleteData({id:id}))
@@ -18,7 +21,8 @@ function home() {
       <div className='home-layout'>
         <h1>Admin panel</h1>
         <button className='add-btn' onClick={()=>{navigate('/addprofile')}}> +Add user</button>
-        <table>
+        <table>{
+          users.length > 0 && (
             <thead>
                 <tr>
                 <th>Id</th>
@@ -27,6 +31,7 @@ function home() {
                 <th>Action</th>
                 </tr>
             </thead>
+          )}
             <tbody>
               {users.map((user,index)=>(
               <tr key={index}>
@@ -45,7 +50,9 @@ function home() {
         {
           users.length > 0 && (<button className='delete-all' onClick={()=>dispatch(removeData())}>Delete All</button>)
         }
-        
+        {
+                    isAuth ? <Logout /> : ""
+        }
       </div>
     </>
   )

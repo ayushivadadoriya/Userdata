@@ -16,7 +16,7 @@ function profile() {
     e.preventDefault();
     const newid=users.length >0 ? users[users.length - 1].id+1 : 1
     dispatch(addData({id:newid, name ,email}));
-    navigate('/')
+    navigate('/home')
   }
 
   return (

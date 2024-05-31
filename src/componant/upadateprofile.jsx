@@ -24,7 +24,7 @@ function upadateprofile() {
       name:editedname,
       email:editedemail
     }))
-    navigate('/')
+    navigate('/home')
   }
 
   return (

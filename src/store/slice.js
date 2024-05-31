@@ -1,9 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const data=[
-        {id:1 , name:'Employee1' , email:'Employee1@gmail.com'},
-        {id:2 , name:'Employee2' , email:'Employee2@gmail.com'},
-        {id:3 , name:'Employee3' , email:'Employee3@gmail.com'},
+        {id:1 , name:'demo' , email:'demo@gmail.com'},
 ]
 
 
